@@ -11,7 +11,7 @@ public class BAChargeTourne : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isActive)
+        if (isActive)
         {
             foreach (Transform t in listSphere)
             {
@@ -27,10 +27,15 @@ public class BAChargeTourne : MonoBehaviour
         {
             t.RotateAround(transform.position, Vector3.up, -400 * Time.deltaTime);
         }
-        directionCharge=(transformPlayer.position-transform.position).normalized;
+        directionCharge = (transformPlayer.position - transform.position).normalized;
 
-        transform.position = new Vector3(transform.position.x,transformPlayer.position.y+20,transform.position.z);
+        transform.position = new Vector3(transform.position.x, transformPlayer.position.y + 20, transform.position.z);
         transform.LookAt(transformPlayer);
-        //isActive = true;
+        isActive = true;
+        StartCoroutine(endCharge());
+    }
+    public IEnumerator endCharge()
+    {
+        yield return new WaitForSeconds(1f);
     }
 }
