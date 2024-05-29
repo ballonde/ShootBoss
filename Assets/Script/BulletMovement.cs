@@ -17,4 +17,13 @@ public class BulletMovement : MonoBehaviour
     {
         transform.position = transform.position+(direction.normalized * speedBullet * Time.deltaTime);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("toouch");
+        if (other.GetComponent<BossHealth>())
+        {
+            other.GetComponent<BossHealth>().TakeDamage(30);
+        }
+        Destroy(gameObject);
+    }
 }

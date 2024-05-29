@@ -27,7 +27,7 @@ public class GunShoot : MonoBehaviour
     public void Shoot()
     {
         Ray ray = cameraP.ScreenPointToRay(Input.mousePosition);
-        bool cast = Physics.Raycast(ray, out RaycastHit hit, 300);
+        bool cast = Physics.Raycast(ray, out RaycastHit hit, 3000);
         Vector3 hitPosition = hit.point;
         //Vector3 hitPosition = cast ? hit.point : transform.position + (-transform.up) * 300;
 
